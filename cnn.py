@@ -82,6 +82,18 @@ train_datagen = ImageDataGenerator(rescale=1. / 255,  # To rescaling the image i
                                    horizontal_flip=True)  # for randomly flipping half of the images horizontally : pour retourner au hasard la moitié des images horizontalement
 
 # dans le test on ne fait que rescalé les images le reste des traitement etait fait a lentrainement
+# Imagedatagenerator est une fonction qui permets de Generates a tf.data.Dataset from image files in a directory.
+# ex de traitement si ma structure est : main_directory/
+# ...class_a/
+# ......a_image_1.jpg
+# ......a_image_2.jpg
+# ...class_b/
+# ......b_image_1.jpg
+# ......b_image_2.jpg
+#Then calling image_dataset_from_directory(main_directory,
+# labels='inferred') will return a tf.data.Dataset that yields batches of images from the subdirectories class_a and class_b,
+# together with labels 0 and 1 (0 corresponding to class_a and 1 corresponding to class_b).
+# du coup les label et les classes sont bien les nom des sous dossier
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 
 print("\nTraining the data...\n")
@@ -92,8 +104,9 @@ print("\nTraining the data...\n")
 training_set = train_datagen.flow_from_directory('train',
                                                  target_size=(64, 64), # pareill que lors de linput plus haut donc la largeur et la hauteur de limage
                                                  batch_size=16,  # Total no. of batches
-                                                 # batch a precisé :
+                                                 # batch a precisé : il dit il parlera plustard dans la video
                                                  class_mode='categorical')
+
 # class_mode on va classifier 6 class avec
 
 test_set = test_datagen.flow_from_directory('test',
