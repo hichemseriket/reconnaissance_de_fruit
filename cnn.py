@@ -125,9 +125,11 @@ test_set = test_datagen.flow_from_directory('test',
 # luc regard moi stp pourquoi les paramettre samples, nb epoch et nb val pose probleme du coup si je les garde le code compil pas mais si je les retire cela fonctionne mais jai pas la meme chose que sur la video du coup
 classifier.fit_generator(training_set,
                          # steps_per_epoch= 1225,# Total training images
+                         # jai retirer les nombre et les remplacer par la variable lent de mes objet entrain et test et cela semble fonctionné
+                         steps_per_epoch= len(training_set),# Total training images
                          epochs = 20,# Total no. of epochs
                          validation_data=test_set,
-                         validation_steps = 343)  # Total testing images
+                         validation_steps = len(test_set))  # Total testing images
 
 # jai modifié les parametre qui ne sont plus a jour par des param depuis la doc et je regard le resultat,
 # jai mis epoch a la place de nb_epoch, steps_per_epoch a la place de samples_per_epoch et validation_steps a la place nb_val_samples
