@@ -16,7 +16,9 @@ classes = ['Fresh Banana', 'Fresh Blueberry', 'Fresh Huckleberry',
            'Rotten Orange']
 # la je reprends le serveur keras et jessaye dintegré la camera dedans directement a voir si cest le mieu afaire
 cap = cv2.VideoCapture(0)
-
+# je me dit dans un premier temps extraire et enregistrer des image depuis la camera live voir si le serveur fonctionne puis essayé de passé directement par la camera sans interface graphique
+# ce serai chiant de tt reecrire les xml deja les label ca va je les ai ce serai cool de convertir ou de trouvé une fonction qui me pond le xml des data ca mevite un travail impossible
+# sinon si je doit cree lencadrement des fruit avec open cv les mask pour reconnaitre donc une nouvelle ia qui risque de me prendre du temps faut prendre la decision rapidement
 @app.route("/")
 def index():
     return render_template("index.html")
