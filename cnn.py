@@ -54,7 +54,7 @@ classifier.add(Dense(units=256, activation='relu'))
 
 # le nombre de nouronnes est seulment de 6 car c'est le nombre de mes sorties et il est du au fait que jai que 3 fruit chacun d'entre eux  possede 2 category donc au final j'ai 6 classes
 # la fonction activation ici est softmax car softmax est utilise pour categorical classification
-classifier.add(Dense(units=6, activation='softmax'))
+classifier.add(Dense(units=7, activation='softmax'))
 
 
 # step6 Compiling CNN
@@ -137,3 +137,5 @@ classifier.fit_generator(training_set,
 # step8 saving model
 
 classifier.save("model.h5")
+
+# ici jai pui modifier le code et ajouetr mes classes a moi et cela fonctionne reste juste a voir dans les data bien mles reorganiser entre train et test
