@@ -98,26 +98,36 @@ test_datagen = ImageDataGenerator(rescale=1. / 255)
 
 print("\nTraining the data...\n")
 
-# il ya un metre de cette classe qui est flow from directory nous permets si on ne veux pas que les labels soit ecrite separemment des autres fichiers
+# il ya une autre methode de cette classe qui est flow from directory nous permets si on ne veux pas que les labels soit ecrite separemment des autres fichiers
 # ex dans notre cas on a les label qui sont les noms des dossier qui sont extrait les labels directement depuis les nom des dossier et les applique automatiquement aux images,
 # faut juste que les folders soit dans le meme repertoire sans devoir envoyé le path donc juste jecris le nom du repertoire comme dans notre cas train est dans le meme repertoire
 training_set = train_datagen.flow_from_directory('train',
                                                  target_size=(64, 64), # pareill que lors de linput plus haut donc la largeur et la hauteur de limage
                                                  batch_size=16,  # Total no. of batches
-                                                 # batch a precisé : il dit il parlera plustard dans la video
+                                                 # batch a precisé : il dit il parlera plustard dans la video pourquoi 12
                                                  class_mode='categorical')
-
-# class_mode on va classifier 6 class avec
+# class_mode on va classifier 6 class avec car on sait quon va classé
+# selon une reponse de overstackflow : Since you are passing class_mode='categorical' you dont have to manually convert the labels to one hot encoded vectors using to_categorical().
+# The Generator will return labels as categorical.
+#class_mode: One of "categorical", "binary", "sparse", "input", or None. Default: "categorical". Determines the type of label arrays that are returned: -
+# "categorical" will be 2D one-hot encoded labels,
+# - "binary" will be 1D binary labels, "sparse" will be 1D integer labels,
+# - "input" will be images identical to input images (mainly used to work with autoencoders).
+# - If None, no labels are returned (the generator will only yield batches of image data,
+# which is useful to use with model.predict_generator()). Please note that in case of class_mode None, the data still needs to reside in a subdirectory of directory for it to work correctly.
 
 test_set = test_datagen.flow_from_directory('test',
                                             target_size=(64, 64),
                                             batch_size=16,
                                             class_mode='categorical')
 
+
+# luc regard moi stp pourquoi les paramettre samples, nb epoch et nb val pose probleme du coup si je les garde le code compil pas mais si je les retire cela fonctionne mais jai pas la meme chose que sur la video du coup
 classifier.fit_generator(training_set,
-                         # Total training images
-                         # Total no. of epochs
-                         validation_data=test_set)  # Total testing images
+                         samples_per_epoch= 1212,# Total training images
+                         nb_epoch = 20,# Total no. of epochs
+                         validation_data=test_set,
+                         nb_val_samples = 300)  # Total testing images
 
 # step8 saving model
 
