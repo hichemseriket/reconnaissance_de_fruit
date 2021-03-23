@@ -1,6 +1,7 @@
 import os
 from uuid import uuid4
 
+import cv2
 from flask import Flask, request, render_template, send_from_directory
 
 
@@ -13,7 +14,8 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 classes = ['Fresh Banana', 'Fresh Blueberry', 'Fresh Huckleberry',
            'Fresh Orange', 'Rotten Banana', 'Rotten Blueberry',
            'Rotten Orange']
-
+# la je reprends le serveur keras et jessaye dintegré la camera dedans directement a voir si cest le mieu afaire
+cap = cv2.VideoCapture(0)
 
 @app.route("/")
 def index():
