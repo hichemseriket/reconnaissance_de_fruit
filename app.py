@@ -44,6 +44,9 @@ def upload():
 
         from keras.models import load_model
         new_model = load_model('model.h5')
+
+        # ici jessaye de mettre le model que jai entrainé avec le tuto qui a plus de fruit
+        # new_model = load_model('fruits_fresh_cnn_1.h5')
         new_model.summary()
         test_image = image.load_img('images\\' + filename, target_size=(64, 64))
         test_image = image.img_to_array(test_image)
