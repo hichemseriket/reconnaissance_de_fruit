@@ -1,0 +1,26 @@
+<annotation>
+	<folder>freshbanana</folder>
+	<filename>Screen Shot 2018-06-12 at 9.43.32 PM.png</filename>
+	<path>D:\PycharmProjects\fruit\Fruit Classification-20210321T192303Z-001\Fruit Classification\train\freshbanana\Screen Shot 2018-06-12 at 9.43.32 PM.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>430</width>
+		<height>476</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>banane</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>13</xmin>
+			<ymin>7</ymin>
+			<xmax>406</xmax>
+			<ymax>438</ymax>
+		</bndbox>
+	</object>
+</annotation>
