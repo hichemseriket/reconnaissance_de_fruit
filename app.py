@@ -43,7 +43,13 @@ def upload():
         from keras.preprocessing import image
 
         from keras.models import load_model
+
+
+        #mon model de reconnaissance entrainer que sur 7 classe
         new_model = load_model('model.h5')
+
+        # mon autre model entrainer sur 65 classes
+        # new_model = load_model('fruits_fresh_cnn_1.h5')
 
         # ici jessaye de mettre le model que jai entrainé avec le tuto qui a plus de fruit
         # new_model = load_model('fruits_fresh_cnn_1.h5')
