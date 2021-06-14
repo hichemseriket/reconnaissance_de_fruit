@@ -55,14 +55,14 @@ background-size:cover;
 height:100vh;
 display:flex;
 ">
-<marquee direction="left" style="color:orangered;"><h3>Fruit Classifier</h3></marquee>
+<marquee direction="left" style="color:orangered;"><h3>Classeur de Fruits</h3></marquee>
 
 <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
 
 <div class="login card" style="color: orangered;">
   <pre>
-  <h1 style="width: fit-content;color: orangered;">Upload Image To Classify<br> Fruit</h1>
-  <strong>Choose Image:</strong>
+  <h1 style="width: fit-content;color: orangered;">Télécharger l'image çà classer<br> Fruit</h1>
+  <strong>Choisir l'image:</strong>
   <input class="btn btn-primary btn-block btn-large" type="file" name="file" accept="image/*" multiple>
   <input type="submit" value="Predict!" class="btn btn-primary btn-block btn-large">
   </pre>
